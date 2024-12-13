@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="default" transaction-type="JTA">
+        <jta-data-source>jdbc/__default</jta-data-source>
+        <properties>
+            <!-- tre properties för att JPA ska skapa databastabeller om behövs-->
+            <!-- Generera tabeller automatiskt -->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
+
+<!-- This persistence.xml file configures JPA (Java Persistence API) to connect your application to the database
+ and manage its tables
+It defines a persistence unit named "default" that uses a database connection (jdbc/__default) and JTA transactions.
+The properties tell JPA to automatically create database tables if they don’t exist.
+The settings use EclipseLink (a JPA provider) to generate the database schema and apply it directly to the database.
+This setup allows the application to seamlessly manage database operations.
+-->
